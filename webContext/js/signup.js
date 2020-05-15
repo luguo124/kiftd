@@ -108,7 +108,7 @@ function sendSignUpInfo(encrypted){
 				$("#accountidbox").addClass("has-error");
 				break;
 			case "illegalaccount":
-				showAlert("提示：注册失败，账户名中不得包含“=”或“:”。");
+				showAlert("提示：注册失败，账户名中不得包含“=”或“:”，且首个字符不能为“#”。");
 				$("#accountidbox").addClass("has-error");
 				break;
 			case "mustlogout":
@@ -121,6 +121,9 @@ function sendSignUpInfo(encrypted){
 				break;
 			case "error":
 				showAlert("提示：注册失败，注册请求无法通过加密效验（可能是请求耗时过长导致的）");
+				break;
+			case "hasescapes":
+				showAlert("提示：注册失败，账户名或密码中不得包含“\\”。");
 				break;
 			case "cannotsignup":
 				showAlert("提示：注册失败，发生意外错误，请稍后重试或联系管理员");
